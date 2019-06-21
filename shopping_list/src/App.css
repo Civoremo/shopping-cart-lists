@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+}
+
+.shopping-list-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 850px;
+  margin: 0 auto;
+  margin-top: 4rem;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  /* border-bottom: 1px solid gray; */
+}
+
+.need-list-container {
+  /* border: 1px solid red; */
+  width: 400px;
+  /* border-right: 1px solid lightgray; */
+  margin-right: 10px;
+}
+
+.found-list-container {
+  width: 400px;
+  /* border-left: 1px solid lightgray; */
+  margin-left: 10px;
+}
+
+.list-title-text {
+  /* border: 1px solid red; */
+  max-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed lightgray;
+  margin-bottom: 30px;
+}
+
+.single-item-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.item-content {
+  width: 180px;
+  /* border: 1px solid blue; */
+  margin-right: 20px;
+}
+
+.item-button-container {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+button {
+  height: 20px;
+}
