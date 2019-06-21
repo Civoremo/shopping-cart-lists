@@ -9,10 +9,8 @@ const FoundList = props => {
             <div className="found-list-container">
                 <h3 className="list-title-text">Found</h3>
                 <div>
-                    {Object.keys(items).map(itemName => { 
-                        if (items[itemName] === 1) {
-                            return <SingleItem key={itemName} item={itemName} move={move} remove={remove} />
-                        }
+                    {Object.keys(items).filter(item => items[item] === 1).map(itemName => { 
+                        return <SingleItem key={itemName} item={itemName} move={move} remove={remove} />
                     })}
                 </div>
             </div>

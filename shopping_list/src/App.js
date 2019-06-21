@@ -28,30 +28,31 @@ class App extends React.Component {
     addNewItem = e => {
         e.preventDefault();
 
-        let duplicate = false;
-
-        for (let item in this.state.items) {
-            if (
-                item.toLocaleLowerCase() ===
-                this.state.newItemText.toLocaleLowerCase()
-            ) {
-                duplicate = true;
+        if (this.state.newItemText) {
+            let duplicate = false;
+            for (let item in this.state.items) {
+                if (
+                    item.toLocaleLowerCase() ===
+                    this.state.newItemText.toLocaleLowerCase()
+                ) {
+                    duplicate = true;
+                }
             }
-        }
 
-        if (duplicate) {
-            alert("Item already in list!");
-            this.setState({
-                ...this.state,
-                newItemText: "",
-            });
-        } else {
-            this.setState(prevState => {
-                let temp = { ...prevState.items };
-                temp[this.state.newItemText] = 0;
-                prevState.newItemText = "";
-                return { items: temp };
-            });
+            if (duplicate) {
+                alert("Item already in list!");
+                this.setState({
+                    ...this.state,
+                    newItemText: "",
+                });
+            } else {
+                this.setState(prevState => {
+                    let temp = { ...prevState.items };
+                    temp[this.state.newItemText] = 0;
+                    prevState.newItemText = "";
+                    return { items: temp };
+                });
+            }
         }
     };
 
