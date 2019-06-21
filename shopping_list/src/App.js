@@ -16,8 +16,7 @@ class App extends React.Component {
             bananas: 1,
             EGGs: 1,
         },
-        newItem: "",
-        duplicate: false,
+        newItemText: "",
     };
 
     handleChange = e => {
@@ -33,7 +32,8 @@ class App extends React.Component {
 
         for (let item in this.state.items) {
             if (
-                item.toLocaleLowerCase() === this.state.newItem.toLocaleLowerCase()
+                item.toLocaleLowerCase() ===
+                this.state.newItemText.toLocaleLowerCase()
             ) {
                 duplicate = true;
             }
@@ -43,20 +43,39 @@ class App extends React.Component {
             alert("Item already in list!");
             this.setState({
                 ...this.state,
-                newItem: "",
+                newItemText: "",
             });
         } else {
             this.setState(prevState => {
                 let temp = { ...prevState.items };
-                temp[this.state.newItem] = 0;
-                prevState.newItem = "";
+                temp[this.state.newItemText] = 0;
+                prevState.newItemText = "";
                 return { items: temp };
             });
         }
     };
 
+    moveItem = item => {
+        this.setState(prevState => {
+            let temp = { ...prevState.items };
+            if (temp[item] === 0) {
+                temp[item] = 1;
+            } else {
+                temp[item] = 0;
+            }
+            return { items: temp };
+        });
+    };
+
+    deleteItem = item => {
+        this.setState(prevState => {
+            let temp = { ...prevState.items };
+            delete temp[item];
+            return { items: temp };
+        });
+    };
+
     render() {
-      
         return (
             <div className="App">
                 <header>
@@ -65,15 +84,23 @@ class App extends React.Component {
 
                 <section className="addNewItem-container">
                     <NewItemInput
-                        newItem={this.state.newItem}
+                        newItemText={this.state.newItemText}
                         handleChange={this.handleChange}
                         addItem={this.addNewItem}
                     />
                 </section>
 
                 <section className="shopping-list-container">
-                    <NeedList items={this.state.items} />
-                    <FoundList items={this.state.items} />
+                    <NeedList
+                        items={this.state.items}
+                        move={this.moveItem}
+                        remove={this.deleteItem}
+                    />
+                    <FoundList
+                        items={this.state.items}
+                        move={this.moveItem}
+                        remove={this.deleteItem}
+                    />
                 </section>
             </div>
         );

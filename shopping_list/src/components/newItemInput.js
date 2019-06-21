@@ -1,7 +1,7 @@
 import React from "react";
 
 const NewItemInput = props => {
-    const { handleChange, addItem, newItem } = props;
+    const { handleChange, addItem, newItemText } = props;
 
     return (
         <div>
@@ -10,9 +10,9 @@ const NewItemInput = props => {
                     onChange={handleChange}
                     type="text"
                     placeholder="Add new item" 
-                    name="newItem"
+                    name="newItemText"
                     autoComplete="off"
-                    value={newItem}
+                    value={newItemText}
                 />
                 <button onClick={addItem}>Add item</button>
             </form>
