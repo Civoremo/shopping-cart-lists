@@ -30,14 +30,7 @@ class App extends React.Component {
 
         if (this.state.newItemText) {
             let duplicate = false;
-            for (let item in this.state.items) {
-                if (
-                    item.toLocaleLowerCase() ===
-                    this.state.newItemText.toLocaleLowerCase()
-                ) {
-                    duplicate = true;
-                }
-            }
+            duplicate = this.duplicateCheck(this.state.newItemText, this.state.items, duplicate)
 
             if (duplicate) {
                 alert("Item already in list!");
@@ -55,6 +48,17 @@ class App extends React.Component {
             }
         }
     };
+
+    duplicateCheck = (newItem, list, isDuplicate) => {
+        for (let item in list) {
+            if (
+                item.toLocaleLowerCase() ===
+                newItem.toLocaleLowerCase()
+            ) {
+                return isDuplicate = true;
+            }
+        }
+    }
 
     moveItem = item => {
         this.setState(prevState => {
