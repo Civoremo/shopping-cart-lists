@@ -1,23 +1,21 @@
 import React from "react";
+import SingleItem from "./singleItem";
 
-class FoundList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+const FoundList = props => {
+  const { ourFinds } = props;
 
-    render() {
-        return (
-            <div>
-                <div className="found-list-container">
-                    <h3 className="list-title-text">Found</h3>
-                    <div>
-                        <p>item 1</p>
-                    </div>
+    return (
+        <div>
+            <div className="found-list-container">
+                <h3 className="list-title-text">Found</h3>
+                <div>
+                    {ourFinds.map(foundItem => {
+                      return <SingleItem key={foundItem} item={foundItem} />
+                    })}
                 </div>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 export default FoundList;

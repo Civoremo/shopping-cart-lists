@@ -18,13 +18,13 @@
 .need-list-container {
   /* border: 1px solid red; */
   width: 400px;
-  border-right: 1px solid lightgray;
+  /* border-right: 1px solid lightgray; */
   margin-right: 10px;
 }
 
 .found-list-container {
   width: 400px;
-  border-left: 1px solid lightgray;
+  /* border-left: 1px solid lightgray; */
   margin-left: 10px;
 }
 

@@ -1,18 +1,23 @@
 import React from "react";
 
-class NewItemInput extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+const NewItemInput = props => {
+    const { handleChange, addItem, newItem } = props;
 
-    render() {
-        return (
-            <div>
-                <input placeholder="Add new item" />
-            </div>
-        );
-    }
-}
+    return (
+        <div>
+            <form onSubmit={addItem}>
+                <input 
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Add new item" 
+                    name="newItem"
+                    autoComplete="off"
+                    value={newItem}
+                />
+                <button onClick={addItem}>Add item</button>
+            </form>
+        </div>
+    );
+};
 
 export default NewItemInput;
