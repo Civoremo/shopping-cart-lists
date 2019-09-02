@@ -2,7 +2,7 @@
   "name": "shopping_list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://civoremo.github.io/shopping-cart-lists/tree/master/shopping_list",
+  "homepage": "https://Civoremo.github.io/shopping-cart-lists/tree/master/shopping_list",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.8.6",
