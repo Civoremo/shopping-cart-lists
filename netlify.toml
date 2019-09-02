@@ -1,9 +1,0 @@
-[build]
-  base = "/shopping_list"
-  publish = "/shopping_list/build"
-  command = "yarn build"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
